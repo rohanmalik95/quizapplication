@@ -78,13 +78,237 @@
 
 
 
+.main {
+    width: 60vw;
+    background-color: rgb(161, 151, 151);
+    color: black;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 30vh;
+}
+
+.main form {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+}
+
+
+.main lable {
+    margin: 10px 10px;
+}
+
+.main {
+    font-weight: bold;
+    font-size: large;
+}
+
+.main #question {
+    height: 80px;
+    width: 600px;
+}
+
+#optionA,
+#optionB,
+#optionC,
+#optionD,
+#answer,
+#category {
+    width: 200px;
+    height: 40px;
+    margin: 10px 10px;
+}
+
+
+#addquestion {
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.add-remove-div {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    align-items: cetner;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 5px;
+}
+
+
+.add-button,
+.remove-button {
+    height: 100px;
+    width: 100px;
+    background-color: pink;
+    color: black;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.headingadd-remove {
+    width: 60vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin: auto;
+}
+
+.headingadd-remove h2 {
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    margin: 5px;
+}
+
+
+.add-button:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background-color: red;
+    cursor: pointer;
+}
+
+.addcategory-details {
+    height: 250px;
+    width: 350px;
+    background-color: rgb(134, 134, 180);
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    border-radius: 10px;
+    margin: auto;
+    border: 2px solid black;
+}
+
+.addcategory-details form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.addcategory-details input {
+    width: 250px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin:40px;
+}
+
+.addcategory-details #addbutton {
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+
+.removecategory-details {
+    height: 250px;
+    width: 350px;
+    background-color:  rgb(134, 134, 180);
+    color: black;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around; */
+    flex-direction: row;
+    border-radius: 10px;
+    margin: auto;
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    margin-top:20px;
+}
+
+
+.removecategory-details form{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:column;
+    margin:40px;
+}
+
+.removecategory-details #removebutton {
+    width: 100px;
+    height: 50px;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    margin: auto;
+    border-radius: 10px;
+    margin-top:20px;
+}
 
 
 
 
 
 
-#addquesform {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #addquesform {
     display: flex;
     align-items: center;
     background-color: red;
@@ -277,4 +501,4 @@ select {
     padding:10px;
     margin:20px 80px;
     flex-direction:column;
-}
+} */

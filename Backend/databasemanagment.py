@@ -1,6 +1,7 @@
 import pymongo
 from flask import Flask,request
 from flask_cors import CORS
+import json
 
 #Initializing the application and the mongodb database
 #Adding the provision for the CORS requests
@@ -64,11 +65,14 @@ print("Starting the applicatoin!")
 def addcategory():
     print("Starting the route for the add category!")
     data = request.get_json()
+    print("Adding the category !"+str(data))
     addData = collection2.insert_one(data)
     if (addData.acknowledged == True):
-        return "Success"
+        payload = {"success":True}
+        return payload
     elif (addData.acknowledged == False):
-        return "Failed "
+        payload = {"success":False}
+        return payload
 
 
 #Defining route to get all the categories from the database
@@ -91,7 +95,8 @@ def deletecategory():
     print("deleting data fromt he lsit"+str(data))
     deleteData = collection2.find_one_and_delete({"name":data["name"]})
     print("Deleting successful! " + str(deleteData))
-    return str(deleteData)
+    payload = {"success":True}
+    return payload
 
 
 
