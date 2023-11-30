@@ -5,6 +5,7 @@ import Home from "./components/Home.js"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./components/design.css"
 import Category from "./components/Category.js"
+import Selectcategory from "./components/Selectcategory.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home></Home>} />
           <Route path="/addquestion" element={<Category></Category>}/>
+          <Route path="/selectcategory" element={<Selectcategory></Selectcategory>}/>
         </Routes>
       </BrowserRouter>
     </>

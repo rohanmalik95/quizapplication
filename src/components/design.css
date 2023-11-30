@@ -261,6 +261,54 @@
 
 
 
+.maindiv-selectcategory
+{
+    height:250px;
+    width:400px;
+    background-color:rgb(153, 151, 151);
+    border-radius:10px;
+    border:2px solid black;
+    margin-left:40%;
+    padding:10px;
+    margin-top:20%;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-direction:column;
+}
+.maindiv-selectcategory form{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-direction:column;
+}
+.maindiv-selectcategory select
+{
+    width: 300px;
+    height:50px;
+    color:rgb(0, 0, 0);
+    background-color:rgb(214, 94, 114);
+    border:1px solid black;
+    border-radius:10px;
+}
+
+.maindiv-selectcategory button{
+    width:100px;
+    height:50px;
+    background-color:green;
+    border:1px solid black;
+    border-radius:10px;
+    margin:20px;
+}
+
+.maindiv-selectcategory #href
+{
+    text-decoration: none;
+    color:white;
+    font-size: large;
+
+}
+
 
 
 
