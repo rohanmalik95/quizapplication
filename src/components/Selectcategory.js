@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router";
+import { createContext } from "react";
 
 function Selectcategory() {
     let [categories, setCategories] = useState([])
     let [input, setInput] = useState("")
+    let navigate = useNavigate()
 
 
     //Function that handles the submit click once the user selects the category
@@ -11,6 +14,8 @@ function Selectcategory() {
         event.preventDefault();
         let userInput = event.target.selectcategoryOption.value
         console.log("Selected the category :", userInput)
+        setInput(userInput)
+        navigate("/home")
     }
 
     //useEffect hook on the first render to fetch all the categories from

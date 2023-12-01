@@ -6,10 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./components/design.css"
 import Category from "./components/Category.js"
 import Selectcategory from "./components/Selectcategory.js";
-
+import { createContext } from "react";
+import Userinput from "./context/UserinputState.js"
 function App() {
   return (
     <>
+    <Userinput>
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<Home></Home>} />
@@ -17,6 +19,7 @@ function App() {
           <Route path="/selectcategory" element={<Selectcategory></Selectcategory>}/>
         </Routes>
       </BrowserRouter>
+    </Userinput>
     </>
   );
 }

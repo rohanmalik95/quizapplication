@@ -3,8 +3,16 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { json } from "react-router";
+import { useContext } from "react";
+import UserinputContext from "../context/UserinputContext"
+
 
 function Carousel() {
+
+    let a = useContext(UserinputContext);
+    console.log(a.name)
+
+
     let [queslist, setQueslist] = useState([]) //Contains the list of all the questions fetched form the api
 
     let [pointer, setPointer] = useState(0) // This pointer will be used to point to the current question to display on screen

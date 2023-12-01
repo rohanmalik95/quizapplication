@@ -6,6 +6,7 @@ function Category() {
     let [display, setDisplay] = useState(true)
     let [display2, setDisplay2] = useState(false)
     let [categories, setCategories] = useState([])
+    console.log("")
 
     //Function to handle the handleclick in the form
     async function handleclick(event) {
