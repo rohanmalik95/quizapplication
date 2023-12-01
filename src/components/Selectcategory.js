@@ -1,22 +1,35 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { createContext } from "react";
+import { useContext } from "react";
+import UserinputContext from "../context/UserinputContext"
+
+
 
 function Selectcategory() {
+    let input = useContext(UserinputContext)
     let [categories, setCategories] = useState([])
-    let [input, setInput] = useState("")
     let navigate = useNavigate()
 
+    console.log(input.state.Category)
+    console.log(input.state.Difficulty)
 
     //Function that handles the submit click once the user selects the category
     function handleSubmit(event) {
         event.preventDefault();
-        let userInput = event.target.selectcategoryOption.value
-        console.log("Selected the category :", userInput)
-        setInput(userInput)
+        let category = event.target.selectcategoryOption.value
+        let difficulty = event.target.difficulty.value
+        let filter = {
+            "category":category,
+            "difficulty":difficulty
+        }
+        console.log("Selected the category :", category)
+        console.log("Selected the diffiuclty level", difficulty)
+        input.setState({"Category":category, "Difficulty":difficulty})
         navigate("/home")
     }
+
+
 
     //useEffect hook on the first render to fetch all the categories from
     // the database
@@ -47,6 +60,14 @@ function Selectcategory() {
                             )
                         })}
                     </select>
+
+                    <h2>Difficulty:</h2>
+                        <select id="difficulty" name="difficulty">
+                            <option type="text" value="easy">Easy</option>
+                            <option type="text" value="medium">Medium</option>
+                            <option type="text" value="hard">Hard</option>
+                        </select>
+
                     <button type="submit">Start</button>
                 </form>
             </div>

@@ -10,8 +10,8 @@ import UserinputContext from "../context/UserinputContext"
 function Carousel() {
 
     let a = useContext(UserinputContext);
-    console.log(a.name)
-
+    console.log("The category selected by the user is ",a.state.Category)
+    console.log("The difficulty selected by the user is :", a.state.Difficulty)
 
     let [queslist, setQueslist] = useState([]) //Contains the list of all the questions fetched form the api
 
@@ -28,22 +28,28 @@ function Carousel() {
 
 
     useEffect(() => {
-        async function fetchData() {
+        async function fetchData(x) {
             let data = await fetch("http://127.0.0.1:5001/getall", {
-                method: "GET",
+                method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                }
+                },
+                body: JSON.stringify(x)
             });
             console.log("first load")
             let jsonData = await data.json()
+            console.log(jsonData)
             setQueslist(jsonData)
             console.log(queslist)
             setCurrentques(jsonData[pointer])
             const keyslist = Object.keys(jsonData)
             setQuizlen(keyslist.length)
         }
-        fetchData();
+        let payload = {
+            "Category":a.state.Category,
+            "Difficulty":a.state.Difficulty
+        }
+        fetchData(payload);
     }, [])
 
 
@@ -74,7 +80,7 @@ function Carousel() {
             <div className="carousel" style={{display:flag?"block":"none"}}>
                 <h3>Question: Question</h3>
                 <div className="questionSpace">
-                    <h2> {currentques.question}</h2>
+                    <h2> {currentques.Question}</h2>
                 </div>
                 <div className="optionSpace">
                     <form onSubmit={handlesubmit}>
@@ -104,7 +110,9 @@ function Carousel() {
                 </div>
             </div>
             <div className="result" style={{ display: flag ? "none" : "block" }}>
-                <h3>correct answers: {score}</h3>
+                <h3>Correct answers : {score}</h3>
+                <h3>Total number of questions : {quizlen}</h3>
+                <h3>Percentage correct : {(score/quizlen)*100}</h3>
             </div>
         </>
     )

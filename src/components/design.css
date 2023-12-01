@@ -67,8 +67,7 @@
     border: 1px solid black;
     color: black;
     width: 300px;
-    height: 70px;
-    text-align: center;
+    height: 180px;
     padding: 10px;
     border-radius: 10px;
     position: absolute;
@@ -116,7 +115,8 @@
 #optionC,
 #optionD,
 #answer,
-#category {
+#category,
+#difficulty {
     width: 200px;
     height: 40px;
     margin: 10px 10px;
@@ -263,7 +263,7 @@
 
 .maindiv-selectcategory
 {
-    height:250px;
+    height:350px;
     width:400px;
     background-color:rgb(153, 151, 151);
     border-radius:10px;

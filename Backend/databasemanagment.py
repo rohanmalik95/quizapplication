@@ -44,9 +44,10 @@ def addquestion():
         return "failure"
 
 #Defining a route for the get all questions method
-@app.route("/getall", methods=["GET"])
+@app.route("/getall", methods=["POST"])
 def getall():
-    getdata = collection.find({})
+    data = request.get_json()
+    getdata = collection.find(data)
     print("fetched all the questions from the database")
     cursor=[]
     for i in getdata:

@@ -18,16 +18,17 @@ function Category() {
         let optionD = event.target.optionD.value
         let answer = event.target.answer.value
         let category = event.target.category.value
-
+        let difficulty = event.target.difficulty.value
 
         let payload = {
-            "question": question,
+            "Question": question,
             "A": optionA,
             "B": optionB,
             "C": optionC,
             "D": optionD,
             "Answer": answer,
-            "category": category
+            "Category": category,
+            "Difficulty":difficulty
         }
         await addquestion(payload);
         document.location.reload();
@@ -166,7 +167,7 @@ function Category() {
                         </label>
 
                         <label>
-                            Answer Option:
+                            Answer:
                             <input type="text" name="answer" id="answer"></input>
                         </label>
 
@@ -176,6 +177,14 @@ function Category() {
                                 {categories.map((i) => {
                                     return (<option type="text" value={i}>{i}</option>)
                                 })}
+                            </select>
+                        </label>
+                        <label>Difficulty:
+
+                            <select id="difficulty" name="difficulty">
+                                <option type="text" value="easy">Easy</option>
+                                <option type="text" value="medium">Medium</option>
+                                <option type="text" value="hard">Hard</option>
                             </select>
                         </label>
 
