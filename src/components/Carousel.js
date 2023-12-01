@@ -5,12 +5,13 @@ import { useRef } from "react";
 import { json } from "react-router";
 import { useContext } from "react";
 import UserinputContext from "../context/UserinputContext"
+import { useNavigate } from "react-router";
 
 
 function Carousel() {
-
+    let navigate = useNavigate();
     let a = useContext(UserinputContext);
-    console.log("The category selected by the user is ",a.state.Category)
+    console.log("The category selected by the user is ", a.state.Category)
     console.log("The difficulty selected by the user is :", a.state.Difficulty)
 
     let [queslist, setQueslist] = useState([]) //Contains the list of all the questions fetched form the api
@@ -45,10 +46,13 @@ function Carousel() {
             const keyslist = Object.keys(jsonData)
             setQuizlen(keyslist.length)
         }
+        
+        //Getting the context variables and then check if they have values or not. If not then navigate back tot he select category page.
         let payload = {
-            "Category":a.state.Category,
-            "Difficulty":a.state.Difficulty
+            "Category": a.state.Category,
+            "Difficulty": a.state.Difficulty
         }
+
         fetchData(payload);
     }, [])
 
@@ -77,10 +81,10 @@ function Carousel() {
 
     return (
         <>
-            <div className="carousel" style={{display:flag?"block":"none"}}>
+            <div className="carousel" style={{ display: flag ? "block" : "none" }}>
                 <h3>Question: Question</h3>
                 <div className="questionSpace">
-                    <h2> {currentques.Question}</h2>
+                    <h2> {currentques.Question ? currentques.Question : ""}</h2>
                 </div>
                 <div className="optionSpace">
                     <form onSubmit={handlesubmit}>
@@ -88,19 +92,19 @@ function Carousel() {
 
                             <label>
                                 <input value="A" type="radio" name="options"></input>
-                                {currentques.A}
+                                {currentques.A ? currentques.A : ""}
                             </label>
                             <label>
                                 <input value="B" type="radio" name="options"></input>
-                                {currentques.B}
+                                {currentques.B ? currentques.B : ""}
                             </label>
                             <label>
                                 <input value="C" type="radio" name="options"></input>
-                                {currentques.C}
+                                {currentques.C ? currentques.C : ""}
                             </label>
                             <label>
                                 <input value="D" type="radio" name="options"></input>
-                                {currentques.D}
+                                {currentques.D ? currentques.D : ""}
                             </label>
 
                             <button type="submit" style={{ display: pointer <= (quizlen - 1) ? "block" : "none" }}  >SubmitAnswer</button>
@@ -110,9 +114,9 @@ function Carousel() {
                 </div>
             </div>
             <div className="result" style={{ display: flag ? "none" : "block" }}>
-                <h3>Correct answers : {score}</h3>
-                <h3>Total number of questions : {quizlen}</h3>
-                <h3>Percentage correct : {(score/quizlen)*100}</h3>
+                <h3>Correct answers : {score ? score : ""}</h3>
+                <h3>Total number of questions : {quizlen ? quizlen : ""}</h3>
+                <h3>Percentage correct : {score ? ((score / quizlen) * 100) : ""}</h3>
             </div>
         </>
     )

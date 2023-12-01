@@ -50,10 +50,17 @@ def getall():
     getdata = collection.find(data)
     print("fetched all the questions from the database")
     cursor=[]
+
+    count = 0
     for i in getdata:
+        count = count +1
         i["_id"] = str(i["_id"])
         cursor.append(i)
-    return cursor
+    
+    if (count == 0):
+        return json.dumps("NoDataFound")
+    else: 
+        return cursor
 print("*"*90)
 print("Starting the applicatoin!")
 

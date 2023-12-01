@@ -28,7 +28,6 @@
     width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: ;
     justify-content: left;
     color: red;
     background-color: rgb(37, 37, 136);
@@ -228,9 +227,6 @@
     width: 350px;
     background-color:  rgb(134, 134, 180);
     color: black;
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around; */
     flex-direction: row;
     border-radius: 10px;
     margin: auto;
