@@ -6,6 +6,12 @@ import { json } from "react-router";
 import { useContext } from "react";
 import UserinputContext from "../context/UserinputContext"
 import { useNavigate } from "react-router";
+import gold from "./gold.png"
+import silver from "./silver.png"
+import bronze from "./bronze.png"
+
+
+
 
 
 function Carousel() {
@@ -28,6 +34,9 @@ function Carousel() {
 
 
 
+    //This useEffect block will run at the start of the application to fetch
+    // all the questions based on the fitlers provided by the user
+
     useEffect(() => {
         async function fetchData(x) {
             let data = await fetch("http://127.0.0.1:5001/getall", {
@@ -39,6 +48,10 @@ function Carousel() {
             });
             console.log("first load")
             let jsonData = await data.json()
+            if (jsonData == "NoDataFound")
+            {
+                navigate("/selectcategory")
+            }
             console.log(jsonData)
             setQueslist(jsonData)
             console.log(queslist)
@@ -46,8 +59,7 @@ function Carousel() {
             const keyslist = Object.keys(jsonData)
             setQuizlen(keyslist.length)
         }
-        
-        //Getting the context variables and then check if they have values or not. If not then navigate back tot he select category page.
+
         let payload = {
             "Category": a.state.Category,
             "Difficulty": a.state.Difficulty
@@ -57,6 +69,10 @@ function Carousel() {
     }, [])
 
 
+
+
+    //Function to handle a submit click done by the user after selecting an answer
+    // to a question 
     function handlesubmit(event) {
         event.preventDefault();
         console.log("quiz length is :", quizlen)
@@ -77,6 +93,12 @@ function Carousel() {
             setFlag(false)
         }
 
+    }
+
+    //Function to play another quiz after playing one
+    function doMore()
+    {
+        navigate("/selectcategory")
     }
 
     return (
@@ -117,6 +139,10 @@ function Carousel() {
                 <h3>Correct answers : {score ? score : ""}</h3>
                 <h3>Total number of questions : {quizlen ? quizlen : ""}</h3>
                 <h3>Percentage correct : {score ? ((score / quizlen) * 100) : ""}</h3>
+                <div className="imageandplaymore">
+                <img src={(score/quizlen)>.9 ? gold:(score/quizlen)<=.9 && (score/quizlen) >= .8 ?silver:bronze} alt="gold"style={{height:100, width:100}}/>
+                <button id="playMoreButton" onClick={doMore} >Play Again</button>
+                </div>
             </div>
         </>
     )

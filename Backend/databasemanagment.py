@@ -60,7 +60,7 @@ def getall():
     if (count == 0):
         return json.dumps("NoDataFound")
     else: 
-        return cursor
+        return json.dumps(cursor)
 print("*"*90)
 print("Starting the applicatoin!")
 
@@ -77,10 +77,10 @@ def addcategory():
     addData = collection2.insert_one(data)
     if (addData.acknowledged == True):
         payload = {"success":True}
-        return payload
+        return json.dumps(payload)
     elif (addData.acknowledged == False):
         payload = {"success":False}
-        return payload
+        return json.dumps(payload)
 
 
 #Defining route to get all the categories from the database
@@ -93,7 +93,7 @@ def getcategory():
     for i in payload:
         x = i["name"]
         cursor.append(x)
-    return cursor
+    return json.dumps(cursor)
 
 
 #Defining route for the deletion of a category
@@ -104,17 +104,7 @@ def deletecategory():
     deleteData = collection2.find_one_and_delete({"name":data["name"]})
     print("Deleting successful! " + str(deleteData))
     payload = {"success":True}
-    return payload
-
-
-
-
-
-
-
-
-
-
+    return json.dumps(payload)
 
 
 
