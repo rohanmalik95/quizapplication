@@ -63,9 +63,9 @@ function Selectcategory() {
 
                     <h2>Difficulty:</h2>
                         <select id="difficulty" name="difficulty">
-                            <option type="text" value="easy">Easy</option>
-                            <option type="text" value="medium">Medium</option>
-                            <option type="text" value="hard">Hard</option>
+                            <option id="difficulty" type="text" value="easy">Easy</option>
+                            <option id="difficulty" type="text" value="medium">Medium</option>
+                            <option id="difficulty" type="text" value="hard">Hard</option>
                         </select>
 
                     <button type="submit">Start</button>

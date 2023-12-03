@@ -138,7 +138,7 @@ function Category() {
 
     return (
         <>
-            <div className="main" style={{ display: display ? "block" : "none" }}>
+            <div className="mainform" style={{ display: display ? "block" : "none" }}>
                 <div className="add-form">
                     <form onSubmit={handleclick}>
                         <label>

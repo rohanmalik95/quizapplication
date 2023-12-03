@@ -104,12 +104,16 @@ function Carousel() {
     return (
         <>
             <div className="carousel" style={{ display: flag ? "block" : "none" }}>
-                <h3>Question: Question</h3>
+                <h3>Question : {pointer}/{quizlen}</h3>
+
+
                 <div className="questionSpace">
                     <h2> {currentques.Question ? currentques.Question : ""}</h2>
                 </div>
+
+
                 <div className="optionSpace">
-                    <form onSubmit={handlesubmit}>
+                    <form id = "formUserInput" onSubmit={handlesubmit}>
                         <div className="answerSpace">
 
                             <label>
@@ -129,15 +133,15 @@ function Carousel() {
                                 {currentques.D ? currentques.D : ""}
                             </label>
 
-                            <button type="submit" style={{ display: pointer <= (quizlen - 1) ? "block" : "none" }}  >SubmitAnswer</button>
+                            <button id="submitAnswer" type="submit" style={{ display: pointer <= (quizlen - 1) ? "block" : "none" }}  >SubmitAnswer</button>
                         </div>
                     </form>
                     <button style={{ display: flag ? "none" : "block" }} >Finish</button>
                 </div>
             </div>
             <div className="result" style={{ display: flag ? "none" : "block" }}>
-                <h3>Correct answers : {score ? score : ""}</h3>
-                <h3>Total number of questions : {quizlen ? quizlen : ""}</h3>
+                <h3>Correct  : {score ? score : ""}</h3>
+                <h3>Total Questions : {quizlen ? quizlen : ""}</h3>
                 <h3>Percentage correct : {score ? ((score / quizlen) * 100) : ""}</h3>
                 <div className="imageandplaymore">
                 <img src={(score/quizlen)>.9 ? gold:(score/quizlen)<=.9 && (score/quizlen) >= .8 ?silver:bronze} alt="gold"style={{height:100, width:100}}/>
